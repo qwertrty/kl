@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            font-family:sans-serif;
+        }
+        .hero{
+            width:100%;
+            height:100vh;
+            background-image: url(images/bg1.pang);
+            background-size: cover;
+            background-position: center;
+            position:relative;
+
+        }
+        .navbar{
+            width: 90%;
+            margin:auto;
+            display:flex;
+            outline:none;
+            align-items: center;
+            justify-content: space-between;
+            position:relative;
+            z-index: 10;
+        }
+        .navbar.logo{
+            width:60px;
+            margin:30px 0;
+            cusor:pointer;
+        }
+        .user{
+            display:flex;
+            align-items:center;
+        }
+        .user img{
+            width: 30px;
+            margin-left:50px;
+            cursor:pointer;
+        }
+        button{
+            padding:8px 25px;
+            background: transparent;
+            outline:none;
+            bouder-radius:20px;
+            color:#fff;
+            font-size:12px;
+            font-weight:bold;
+            cusor:pointer
+        }
+        .container{
+            width:50%;
+            height:100vh;
+            background: rgba(86,86,86,0.3);
+            backdrop-filter: blur(10px);
+            position:absolute;
+            left:0;
+            top:0;
+        }
+        .info{
+            width:550px;
+            color:#fff;
+            position:absolute;
+            right:0;
+            top:50%;
+            transform:translateY(-50%);
+
+        }
+        .info h1{
+            font-size:60px;
+            letter-spacing:10px;
+        }
+        .info p{
+            color:#f0fff1;
+            font-size:11px;
+            margin:20px 0;
+            line-height:18px;
+        }
+        .info input{
+            width: 50%;
+            padding:8px 10px;
+            outline:none;
+            border:2px solid #fff;
+            border-radius:20px;
+            background: transparent;
+            color:#fff;
+            font-size:12px;
+        }
+        ::placeholder{
+            color:#ccc;
+        }
+        .slider{
+            display:flex;
+            align-items:center;
+            position:absolute;
+            right:30px;
+            bottom:50px;
+
+
+        }
+        #prev,#next{
+            width:20px;
+            cursor:pointer;
+        }
+        .preview{
+            display:flex;
+            align-items:center;
+            margin:0 60px;
+        }
+        .preview img{
+            width:60px;
+            margin:0 10px;
+            opacity:0 4;
+        }
+        .preview .active{
+            display:block;
+            border:3px solid #fff;
+            width:10px;
+            opacity:1;
+        }
+
+
+
+
+    </style>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="hero">
+    <div class="navbar">
+        <img src="pictures/bg1.jpg" class="logo">
+        <div class="user">
+            <button type="button">Explore</button>
+            <img src="photos-bg1.jpg" class="user">
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="info">
+            <h1>DISCOVER</h1>
+            <P>lorem ipsum delor sit amet , consectrrur adipiscing elit .Preaesent vestibulum nulla <br>id eros rhoncus , at viverra velit trempor.</P>
+            <input type="text" placeholder="Search">
+        </div>
+
+
+    </div>
+    <div class="slider">
+        <img src="" id="prev">
+        <div class="preview">
+            <img src="pictures/bg1.jpg" class=" active thumbnail">
+            <img src="pictures/bg1.jpg" class="thumbnail">
+            <img src="pictures/bg1.jpg" class="thumbnail">
+            <img src="pictures/bg1.jpg" class="thumbnail">
+            <img src="pictures/bg1.jpg" class="thumbnail">
+        </div>
+        <img src="" id="next">
+    </div>
+
+</div>
+<script>
+    var prev=document.getElementById("prev");
+    var prev=document.getElementById("next");
+    var thumbnail=document.getElementsByClassName("thumbnail");
+    var hero=document.getElementById("hero");
+
+    var backgroundImg=new Array
+    (
+        "pictures/bg1.jpg",
+            "pictures//bg2.webp",
+            "pictures/bg1.jpg",
+            "pictures/bg1.jpg",
+            "pictures/bg1.jpg",
+    );
+    let i=0;
+    next.onclick=function(){
+        if(i<4) {
+            hero.style.backgroundImage = 'url("' + backgroundImg(i + 1) + '")';
+            thumbnail[i+1].classList.add("active");
+            thumbnail[i].classList.remove("active");
+            i++;
+        }
+    }
+    prev.onclick=function(){
+        if(i>0) {
+            hero.style.backgroundImage = 'url("' + backgroundImg(i -1) + '")';
+            thumbnail[i+1].classList.add("active");
+            thumbnail[i].classList.remove("active");
+            i--;
+        }
+    }
+</script>
+
+
+</body>
+</html>
